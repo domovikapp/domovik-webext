@@ -1,0 +1,72 @@
+{
+    "extensionDescription": {
+        "message": "Domovik synchronise vos onglets, favoris, et listes de lectures entre tous vos navigateurs."
+    },
+    "actionTooltip": { "message": "Domovik – Sauvegarder cette page" },
+
+    "defaultBrowserName": { "message": "$1 sur $2" },
+    "settingsTitle": { "message": "Domovik - Paramètres" },
+    "connectedAs": { "message": "Connecté avec " },
+    "myAccount": { "message": "Voir mon compte" },
+    "server_url": { "message": "Adresse du serveur" },
+    "noAccessGranted": { "message": "La permission de connexion au serveur Domovik a été refusée" },
+    "email": { "message": "Mèl" },
+    "password": { "message": "Mot de passe" },
+    "browsingWith": { "message": "Vous naviguez avec"},
+    "nameBrowser": { "message": "Baptiser ce navigateur" },
+    "refreshButton": { "message": "Se reconnecter" },
+    "renameButton": { "message": "Renommer" },
+    "connectButton": { "message": "Associer ce navigateur" },
+    "logoutButton": { "message": "Dissocier ce navigateur" },
+    "ad": { "message": "Vous n'avez pas encore de compte ? <a href='https://domovik.app/registration/new'>S'inscrire</a>" },
+    "unableToUpdateBrowserName": { "message": "Impossible de renommer le navigateur : " },
+    "checkCredentials": { "message": "Impossible de se connecter ; veuillez vérifier vos identifiants"},
+    "notConnected": { "message": "Ce navigateur n'est lié à aucun compte Domovik" },
+    "unableToRenewToken": { "message": "Erreur lors du rafraîchissement de l'authentification" },
+    "browserNotCurrentlyLinked": { "message": "Ce navigateur n'est pas encore associé" },
+    "browserLinked": { "message": "$1 est maintenant associé à votre compte Domovik" },
+    "cannotLinkBrowser": { "message": "Erreur lors de l'association de ce navigateur" },
+    "browserSuccessfullyRenamed": { "message": "Ce navigateur est désormais connu sous le nom de « $1 »"},
+    "logoutSuccessful": { "message": "Déconnexion réussie"},
+    "logoutFailed": { "message": "La déconnexion a échouée : $1"},
+
+    "omnibarDescription": { "message": "Importer des onglets depuis vos autres navigateurs" },
+    "tabFrom": { "message": "Onglet sur" },
+    "bookmark": { "message": "Marque-page" },
+
+    "savedIn": { "message": "Cette page est maintenant conservée dans $1" },
+    "sentTo": { "message": "Cette page a été envoyée à $1" },
+    "unableToSaveToList": { "message": "Une erreur est survenue lors de la sauvegarde de cette page" },
+    "unableToCreateList": { "message": "Une erreur est survenue lors de la création de la liste" },
+    "stashTitle": { "message": "Placer dans" },
+    "sendToTitle": { "message": "Envoyer à" },
+    "titleTooLong": { "message": "Titre trop long" },
+    "newList": { "message": "Nouvelle liste..." },
+    "newListName": { "message": "Nom de la nouvelle liste" },
+
+
+    "newTab": { "message": "Nouvel onglet"},
+    "noLists": { "message": "<h3>Vous n'avez aucune liste de lecture configurée</h3><p>Vous pouvez en ouvrir une <a href='https://domovik.app/lists'>sur votre compte</a></p>" },
+    "notLinked": { "message": "Ce navigateur n'est pas lié à un compte Domovik."},
+    "seeSettings": { "message": "Voir les <a href='/html/settings.html'>paramètres</a>"},
+    "serverUnreachable": { "message": "Impossible de se connecter au serveur Domovik" },
+    "readingLists": { "message": "Listes de lecture" },
+    "otherBrowsers": { "message": "Onglets distants" },
+
+    "sendPageTo": { "message": "Envoyer cette page à $1" },
+    "sendLinkTo": { "message": "Envoyer ce lien à $1" },
+    "errorSendingLink": { "message": "L'envoi du lien a échoué" },
+    "browserUnauthorized": { "message": "L'authentification à votre compte Domovik a expirée" },
+    "browserRemotelyUnlinked": { "message": "Ce navigateur a été dissocié de votre compte Domovik" },
+    "noSubscription": { "message": "Votre abonnement a expiré" },
+    "renewIt": { "message": "renouveler" },
+    "serverNotFound": { "message": "Impossible de trouver un serveur Domovik à $1" },
+    "serverError": { "message": "Erreur interne au serveur" },
+
+
+    "connect": { "message": "Se connecter"},
+    "reconnect": { "message": "Se reconnecter"},
+    "create": { "message": "Créer un compte" },
+    "Failed_to_fetch": {"message": "Échec de la connexion au serveur Domovik"},
+    "networkError": {"message": "Échec de la connexion au serveur Domovik"}
+}

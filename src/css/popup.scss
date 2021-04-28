@@ -1,0 +1,59 @@
+@import "./core.scss";
+
+$accent: #931a11;
+$fg: #111;
+$bg: #eee;
+$bg-selected: #ccc;
+
+$accent-dark: #a33a31;
+$fg-dark: #eee;
+$bg-dark: #444;
+$bg-selected-dark: #666;
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 300px;
+    font-family: sans-serif;
+    background-color: $bg;
+    user-select: none;
+    @media (prefers-color-scheme: dark) {
+        background-color: $bg-dark;
+    }
+}
+
+
+h1 {
+    font-size: 1rem;
+    text-align: left;
+    color: $fg;
+    padding: 0.2rem 0.4rem;
+    margin: 0;
+    border-bottom: 1px solid $accent;
+    margin-top: 1rem;
+    @media (prefers-color-scheme: dark) {
+        color: $fg-dark;
+        border-bottom: 1px solid $accent-dark;
+    }
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+}
+
+#lists {
+    color: $fg;
+    @media (prefers-color-scheme: dark) {
+        color: $fg-dark;
+    }
+    .list {
+        cursor: pointer;
+        padding: 0.1rem 0.6rem;
+        &:hover {
+            background-color: $bg-selected;
+            @media (prefers-color-scheme: dark) {
+                background-color: $bg-selected-dark;
+            }
+        }
+    }
+}

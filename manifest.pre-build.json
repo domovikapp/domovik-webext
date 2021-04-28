@@ -1,0 +1,45 @@
+{
+    "manifest_version": 2,
+    "name": "Domovik",
+    "version": "1.4.6",
+    "description": "__MSG_extensionDescription__",
+    "author": "Domovik",
+    "homepage_url": "https://domovik.app",
+    "incognito": "not_allowed",
+    "default_locale": "en",
+    "permissions": [
+        "storage", "tabs", "notifications", "alarms", "contextMenus", "bookmarks", "HTTP_PERMISSION"
+    ],
+    "optional_permissions": [ "<all_urls>" ],
+    "omnibox": {"keyword": "dom"},
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+
+    "icons": {
+        "32": "icons/domovik-32.png",
+        "48": "icons/domovik-48.png",
+        "96": "icons/domovik-96.png"
+    },
+
+    "chrome_url_overrides": {
+        "newtab": "html/newtab.html"
+    },
+
+    "browser_action": {
+        "default_icon": {
+            "32": "icons/domovik-32.png",
+            "48": "icons/domovik-48.png",
+            "96": "icons/domovik-96.png"
+        },
+        "default_title": "__MSG_actionTooltip__",
+        "default_popup": "html/popup.html"
+    },
+
+    "options_ui":{
+        "page": "html/settings.html",
+        "open_in_tab": true
+    }
+}

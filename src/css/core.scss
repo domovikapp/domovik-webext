@@ -1,0 +1,26 @@
+body {
+    text-rendering: optimizeLegibility;
+    font-family: "Inter", sans-serif;
+    background-color: #d3c7a2;
+    margin: 0;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+    color: #931a11;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: #496475;
+    cursor: pointer;
+
+    &:hover {
+        transition: color 0.3s;
+        color: #333;
+    }
+}

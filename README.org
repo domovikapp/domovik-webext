@@ -1,0 +1,46 @@
+* Domovik
+This is the companion extension to the [[https://domovik.app][Domovik]] cross-browser synchronisation service.
+
+** Requirements
+A local installation of [[https://nodejs.org/en/][Node.js]] is required to build the extension, which is needed to compile the [[https://www.typescriptlang.org/][TypeScript]] source files and run the [[https://webpack.js.org/][webpack]] build system. Once it is available, you can clone the repository:
+
+#+begin_src
+git clone https://github.com/domovikapp/domovik-webext.git
+#+end_src
+
+then install the required JS modules:
+
+#+begin_src
+npm install
+#+end_src
+
+** Release
+The release version of the web extension is built with =npm run prod=. The release files will then be available in the =dist/= folder, from where they can be packaged for distribution.
+
+** Development
+I you wish to hack on the Domovik web extension, you can run it in development mode with =npm run dev=. The built extension will then be available in the =dist_dev/= folder, from which it can be loaded in your browser.
+
+** License
+The Domovik web extension is released under the [[https://www.gnu.org/licenses/gpl-3.0.txt][GPLv3]] license.
+
+** Changelog
+** CURRENT
+** 1.4.6
+- Ensure that the trailing slash in server URL is there
+- Add a better status indicator
+- Fix redundant link sending
+** 1.4.4
+- Network bugfixes
+** 1.4.3
+- Add the version infos in the settings screen
+- Add a link to the account settings in the settings screen
+** 1.4.2
+- Do not send overlapping token renewal requests
+** 1.4.1
+- Fix CSS for settings
+- Don't erase existing configuration on update
+** 1.4
+- Widen the new tab page grid
+- Add a lite version without the New Tab page
+- Open Settings on install
+- Add a Lite version which does not override the new tab page

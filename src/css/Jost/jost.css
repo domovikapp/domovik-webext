@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Jost";
+    src: url("Jost-400-Book.otf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Jost";
+    src: url("Jost-400-BookItalic.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Jost";
+    src: url("Jost-600-Semi.otf");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Jost";
+    src: url("Jost-600-SemiItalic.otf");
+    font-weight: bold;
+    font-style: italic;
+}
