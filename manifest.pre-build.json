@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Domovik",
-    "version": "1.4.6",
+    "version": "1.4.7",
     "description": "__MSG_extensionDescription__",
     "author": "Domovik",
     "homepage_url": "https://domovik.app",
