@@ -13,7 +13,7 @@ var DEFAULT_SERVER_URL: string;
 if (PRODUCTION) {
     DEFAULT_SERVER_URL = "https://domovik.app/api/v1/";
 } else {
-    DEFAULT_SERVER_URL = "http://localhost:4000/api/v1/";
+    DEFAULT_SERVER_URL = "http://127.0.0.1:4000/api/v1/";
 }
 
 type Alert = {
@@ -352,7 +352,7 @@ let settingsView = {
                 m("span.logged-as", i18n("connectedAs") + " "),
                 m("span.email", state.s.email),
                 m("span.logged-as", " – "),
-                m("a", { href: state.s.serverUrl.replace("/api/v1", "/registration/edit") }, i18n("myAccount")),
+                m("a", { href: state.s.serverUrl.replace("/api/v1", "/settings") }, i18n("myAccount")),
             ]),
             m("form", { onsubmit: renameBrowser }, [
                 m("label", { for: "browser_rename" }, i18n("browsingWith")),
