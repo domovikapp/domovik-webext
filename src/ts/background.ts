@@ -5,7 +5,7 @@ declare var PRODUCTION: boolean;
 
 var DOMOVIK_REFRESH: number;
 if (PRODUCTION) {
-    DOMOVIK_REFRESH = 3;
+    DOMOVIK_REFRESH = 5;
 } else {
     DOMOVIK_REFRESH = 1;
 }

@@ -1,6 +1,6 @@
-import { notify, i18n, sleep } from "./lib";
 import { browser } from "webextension-polyfill-ts";
-
+import { debounce } from "ts-debounce";
+import { notify, i18n, sleep } from "./lib";
 
 export type Browser = {
     name: string,
@@ -173,7 +173,7 @@ export function decode(text?: string) {
 // Called when the authentication succeeded
 export function authorizedHook() {
     browser.browserAction.enable();
-    syncTabs()
+    bouncingSyncTabs()
         .then(syncBrowsers)  // Will re-create context menus
         .then(syncBookmarks)
         .then(getCommands);
@@ -326,7 +326,8 @@ async function performReLogin() {
 }
 
 // Returns a Promise
-export async function syncTabs() {
+export const syncTabs = debounce(bouncingSyncTabs, 10_000)
+async function bouncingSyncTabs() {
     return browser.storage.local.get(["linked"])
         .then((s: { linked?: boolean }) =>
             s.linked ? browser.storage.local.get(["uuid"]) : Promise.reject())

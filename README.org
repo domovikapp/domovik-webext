@@ -25,6 +25,7 @@ The Domovik web extension is released under the [[https://www.gnu.org/licenses/g
 
 ** Changelog
 ** CURRENT
+- Add a debounce system to reduce bandwidth consumption
 ** 1.4.6
 - Ensure that the trailing slash in server URL is there
 - Add a better status indicator
