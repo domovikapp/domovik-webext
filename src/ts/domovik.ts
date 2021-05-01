@@ -37,7 +37,7 @@ export type EncryptedListLink = ListLink;
 export type EncryptedReadingList = ReadingList;
 export type EncryptedBookmark = Bookmark;
 
-export function encryptPassword(password: string) {
+export async function encryptPassword(password: string) {
     if (password.length < 1) {
         throw new Error();
     }
@@ -86,7 +86,7 @@ export function api(_action: string, _method: "GET" | "POST" | "PATCH" | "PUT" |
                 })
             }
         })
-        .catch((e: Error) =>
+        .catch((_e: Error) =>
             browser.storage.local.set({ connectionStatus: "networkError" })
                 .then(() => Promise.reject(new Error("networkError"))))
         .then((r: Response) => {
@@ -112,20 +112,16 @@ export function api(_action: string, _method: "GET" | "POST" | "PATCH" | "PUT" |
                                     .then(() => Promise.reject(new Error("browserUnauthorized")))
                             })
                             .then(() => api(_action, _method, _body))
-                        break;
                     case 402:
                         return browser.storage.local.set({ connectionStatus: "unSubscribed" })
                             .then(() => Promise.reject(new Error("noSubscription")))
-                        break;
                     case 410:
                         notify(i18n("browserRemotelyUnlinked"));
                         unAuthorizedHook();
                         return clear().then(() => Promise.reject(new Error("browserRemotelyUnlinked")))
-                        break;
                     case 500:
                         return browser.storage.local.set({ connectionStatus: "serverError" })
                             .then(() => Promise.reject(new Error("serverError")))
-                        break;
                     default:
                         console.error(r);
                         return browser.storage.local.set({ connectionStatus: "serverError" })
@@ -146,8 +142,8 @@ export function encode(text?: string) {
                 ["encrypt", "decrypt"]
             ))
             .then((key: CryptoKey) => window.crypto.subtle.encrypt({ name: "AES-GCM", iv: new Uint8Array(12) },
-                                                                   key,
-                                                                   (new TextEncoder()).encode(text)))
+                key,
+                (new TextEncoder()).encode(text)))
             .then((x: ArrayBufferLike) => btoa(String.fromCharCode(...new Uint8Array(x))))
     } else {
         return Promise.resolve("");
@@ -228,7 +224,7 @@ export async function sendCommand(info: any, tab: any) {
     let s = await browser.storage.local.get(["uuid"]);
     let urlEncoded = await encode(url);
     return api(`/browsers/${s.uuid}/command`, "POST",
-               {target: info.menuItemId.split("|")[0], command: { op: "open", url: urlEncoded } })
+        { target: info.menuItemId.split("|")[0], command: { op: "open", url: urlEncoded } })
         .catch((e: any) => {
             console.error(e)
             handleError(new Error("errorSendingLink"))
