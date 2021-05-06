@@ -14,11 +14,14 @@ then install the required JS modules:
 npm install
 #+end_src
 
+** Domovik Full and Lite
+The Domovik extensions supports two build profiles: /full/ and /lite/. The only difference between them is that /full/ add a custom New Tab page, whereas the /lite/ version does not make any change to it.
+
 ** Release
-The release version of the web extension is built with =npm run prod=. The release files will then be available in the =dist/= folder, from where they can be packaged for distribution.
+The release version of the web extension is built with =make full= (or =make lite=). The release files will then be available in the =dist/= folder, from where they can be packaged for distribution.
 
 ** Development
-I you wish to hack on the Domovik web extension, you can run it in development mode with =npm run dev=. The built extension will then be available in the =dist_dev/= folder, from which it can be loaded in your browser.
+I you wish to hack on the Domovik web extension, you can run it in development mode with =make dev_full= (or =make dev_lite=). The built extension will then be available in the =dist_dev/= folder, from which it can be side-loaded in your browser.
 
 ** License
 The Domovik web extension is released under the [[https://www.gnu.org/licenses/gpl-3.0.txt][GPLv3]] license.
