@@ -8,6 +8,7 @@ export type Browser = {
     tabs: Tab[],
 }
 export type Tab = {
+    session_id: number,
     title: string,
     url: string,
     favicon: string,
@@ -325,7 +326,6 @@ async function performReLogin() {
         })
 }
 
-// Returns a Promise
 export const syncTabs = debounce(bouncingSyncTabs, 10_000)
 async function bouncingSyncTabs() {
     return browser.storage.local.get(["linked"])
@@ -342,6 +342,7 @@ async function bouncingSyncTabs() {
                         let enc_url = await encode(tab.url);
                         let enc_favicon = await encode(tab.favIconUrl);
                         return {
+                            session_id: tab.id,
                             title: enc_title,
                             url: tab.url.length > 8000 ? "" : enc_url,
                             favicon: tab.favIconUrl ? (tab.favIconUrl.length > 32000 ? "" : enc_favicon) : "",
@@ -358,6 +359,42 @@ async function bouncingSyncTabs() {
             }))
         .then((payload: any) => {
             api("/browsers/tabs/", "POST", payload)
+        })
+}
+
+
+export async function updateTab(tab: any) {
+    console.log("Updating tab ", tab)
+    return browser.storage.local.get(["linked"])
+        .then((s: { linked?: boolean }) =>
+            s.linked ? browser.storage.local.get(["uuid"]) : Promise.reject())
+        .then((s: { uuid?: string }) => s.uuid ? s.uuid : Promise.reject("This browser has no UUID"))
+        .then(async (uuid: string) => {
+            let enc_title = await encode(tab.title);
+            let enc_url = await encode(tab.url);
+            let enc_favicon = await encode(tab.favIconUrl);
+
+            let payload = {
+                tab: {
+                    session_id: tab.id,
+                    title: enc_title,
+                    url: tab.url.length > 8000 ? "" : enc_url,
+                    favicon: tab.favIconUrl ? (tab.favIconUrl.length > 32000 ? "" : enc_favicon) : "",
+                    active: tab.active, index: tab.index, pinned: tab.pinned, window: tab.windowId
+                }
+            };
+            return api(`/browsers/${uuid}/tabs/`, "PATCH", payload);
+        })
+}
+
+export async function removeTab(tabID: number) {
+    console.log("Removing tab #", tabID)
+    return browser.storage.local.get(["linked"])
+        .then((s: { linked?: boolean }) =>
+            s.linked ? browser.storage.local.get(["uuid"]) : Promise.reject())
+        .then((s: { uuid?: string }) => s.uuid ? s.uuid : Promise.reject("This browser has no UUID"))
+        .then((uuid: string) => {
+            return api(`/browsers/${uuid}/tabs/${tabID}`, "DELETE");
         })
 }
 

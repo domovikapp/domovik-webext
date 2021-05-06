@@ -24,7 +24,8 @@ I you wish to hack on the Domovik web extension, you can run it in development m
 The Domovik web extension is released under the [[https://www.gnu.org/licenses/gpl-3.0.txt][GPLv3]] license.
 
 ** Changelog
-** CURRENT
+** 1.5
+- Follow the new additions to the API
 - Add a toggle for custom server URL
 ** 1.4.7
 - Add a debounce system to reduce bandwidth consumption

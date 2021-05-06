@@ -5,9 +5,9 @@ declare var PRODUCTION: boolean;
 
 var DOMOVIK_REFRESH: number;
 if (PRODUCTION) {
-    DOMOVIK_REFRESH = 5;
+    DOMOVIK_REFRESH = 10;
 } else {
-    DOMOVIK_REFRESH = 1;
+    DOMOVIK_REFRESH = 3;
 }
 
 browser.runtime.onInstalled.addListener(() => {
@@ -31,8 +31,11 @@ function setupTimers() {
 }
 
 function setupTabSync() {
-    browser.tabs.onUpdated.addListener((_: any, info: { status: string }) => { if (info.status === "complete") { domovik.syncTabs() } });
-    browser.tabs.onRemoved.addListener(domovik.syncTabs);
+    domovik.syncTabs();  // Run a first sync on startup
+    browser.tabs.onUpdated.addListener((_: any, info: { status: string }, tab: domovik.Tab) => {
+        if (info.status === "complete") { domovik.updateTab(tab) }
+    });
+    browser.tabs.onRemoved.addListener(domovik.removeTab);
 }
 
 function setupBookmarksSync() {
@@ -47,7 +50,6 @@ function setupOmnibox() {
         let keywords = text.trim().split(/\s+/).map((k: string) => k.toLowerCase());
         browser.storage.local.get(["other_browsers", "bookmarks"])
             .then((s: { other_browsers: domovik.Browser[], bookmarks: domovik.Bookmark[] }) => {
-                console.log(s)
                 let r = s.other_browsers
                     .map((b: domovik.Browser) =>
                         b.tabs
