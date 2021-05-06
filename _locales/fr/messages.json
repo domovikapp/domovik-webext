@@ -8,7 +8,7 @@
     "settingsTitle": { "message": "Domovik - Paramètres" },
     "connectedAs": { "message": "Connecté avec " },
     "myAccount": { "message": "Voir mon compte" },
-    "server_url": { "message": "Adresse du serveur" },
+    "server_url": { "message": "Utiliser un autre serveur" },
     "noAccessGranted": { "message": "La permission de connexion au serveur Domovik a été refusée" },
     "email": { "message": "Mèl" },
     "password": { "message": "Mot de passe" },

@@ -8,7 +8,7 @@
     "settingsTitle": { "message": "Domovik - Settings" },
     "connectedAs": { "message": "Connected as" },
     "myAccount": { "message": "See my account" },
-    "server_url": { "message": "Server base URL" },
+    "server_url": { "message": "Use a custom server" },
     "noAccessGranted": { "message": "Permission to access the Domovik server has been denied" },
     "email": { "message": "E-mail" },
     "password": { "message": "Password" },

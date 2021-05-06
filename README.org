@@ -25,6 +25,7 @@ The Domovik web extension is released under the [[https://www.gnu.org/licenses/g
 
 ** Changelog
 ** CURRENT
+- Add a toggle for custom server URL
 ** 1.4.7
 - Add a debounce system to reduce bandwidth consumption
 ** 1.4.6

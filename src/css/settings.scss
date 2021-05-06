@@ -44,7 +44,7 @@ a {
 }
 
 label {
-    display: inline-block;
+    display: block;
     margin-top: 1rem;
     font-weight: bold;
 }
@@ -206,4 +206,25 @@ span.email {
     color: #777;
     text-align: center;
     font-size: 0.8rem;
+}
+
+#server_arrow {
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: 0.2s;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+#server_url {
+    display: none;
+}
+
+.shown {
+    &#server_arrow {
+        transform: rotate(90deg);
+    }
+
+    &#server_url {
+        display: block;
+    }
 }

@@ -301,12 +301,16 @@ let statusView = {
         }
     }
 }
+
+function toggleServerURL() {
+    (e("server_arrow") as HTMLInputElement).classList.toggle("shown");
+    (e("server_url") as HTMLInputElement).classList.toggle("shown");
+}
+
 let linkView = {
     view: function() {
         return m("div", [
             m("form", { onsubmit: linkBrowser }, [
-                m("label", { for: "server_url" }, i18n("server_url")),
-                m("input#server_url", { type: "url", name: "server_url", placeholder: DEFAULT_SERVER_URL }),
                 m("label", { for: "email" }, i18n("email")),
                 m("input#email", { type: "email", name: "email", autofocus: true }),
 
@@ -315,6 +319,13 @@ let linkView = {
 
                 m("label", { for: "browser_name" }, i18n("nameBrowser")),
                 m("input#browser_name", { type: "text", name: "browser_name", placeholder: DEFAULT_BROWSER_NAME }),
+
+
+                m("label", {for: "server_url", onclick: toggleServerURL,}, [
+                    m("span#server_arrow", "➤ "),
+                    m("span", i18n("server_url"))
+                ]),
+                m("input#server_url", { type: "url", name: "server_url", placeholder: DEFAULT_SERVER_URL }),
 
                 m("button#link", { type: "submit" }, i18n("connectButton"))
             ]),
