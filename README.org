@@ -1,6 +1,14 @@
 * Domovik
 This is the companion extension to the [[https://domovik.app][Domovik]] cross-browser synchronisation service.
 
+It comes in two flavors: /Domovik/ provides a New Tab Page featuring your synchronized data, and /Domovik Lite/, which does not change your New Tab Page.
+
+* Download the extension
+- [[https://addons.mozilla.org/en-US/firefox/user/16143812/][For Firefox]]
+- [[https://chrome.google.com/webstore/search/domovik][For Chrome-based browsers]]
+- [[https://microsoftedge.microsoft.com/addons/search/domovik][For Edge]]
+
+* Build the extension
 ** Requirements
 A local installation of [[https://nodejs.org/en/][Node.js]] is required to build the extension, which is needed to compile the [[https://www.typescriptlang.org/][TypeScript]] source files and run the [[https://webpack.js.org/][webpack]] build system. Once it is available, you can clone the repository:
 
@@ -51,3 +59,6 @@ The Domovik web extension is released under the [[https://www.gnu.org/licenses/g
 - Add a lite version without the New Tab page
 - Open Settings on install
 - Add a Lite version which does not override the new tab page
+
+* License
+The Domovik web extensions are available under the [[http://www.gnu.org/licenses/agpl-3.0.html][GPLv3 license]], as found in the LICENSE text file.
